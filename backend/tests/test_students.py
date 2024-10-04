@@ -46,7 +46,8 @@ def test_create_student(client, faker):
 @pytest.mark.django_db
 def test_get_student(client, create_student):
     student = create_student()
-    response = client.get(f"/api/student/{student.id}/")
+    response = client.get(f"/api/students/{student.id}/")
+    print(response.data)
     assert response.status_code == 200
     assert response.data["first_name"] == student.first_name
     assert response.data["grade"] == student.grade
@@ -59,18 +60,9 @@ def test_update_student(client, create_student):
         "phone": "+1234567890"
     }
 
-    response = client.patch(f"/api/student/{student.id}/", updated_data, format='json')
+    response = client.patch(f"/api/students/{student.id}/", updated_data, format='json')
     print(response.data)
     assert response.status_code == 200
     student.refresh_from_db()
     assert student.first_name == updated_data["first_name"]
     assert student.phone == updated_data["phone"]
-
-
-@pytest.mark.django_db
-def test_delete_student(client, create_student):
-    student = create_student()
-    response = client.delete(f"/api/student/{student.id}/")
-
-    assert response.status_code == 204
-    assert Student.objects.count() == 0

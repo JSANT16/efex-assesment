@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import StudentListCreate, StudentRetrieveUpdateDelete
+from .views import StudentView, StudentGetByIdView
 
 urlpatterns = [
-    path('students/', StudentListCreate.as_view(), name='student-list-create'),
-    path('student/<int:pk>/', StudentRetrieveUpdateDelete.as_view(), name='student-retrieve-update-delete'),
+    path('students/', StudentView.as_view(), name='studens'),
+    path('students/<int:student_id>/', StudentGetByIdView.as_view(), name='student-detail'),
 ]
