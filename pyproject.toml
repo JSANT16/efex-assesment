@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "code-assesment"
+version = "0.1.0"
+description = ""
+authors = ["JSANT16 <jardm12@hotmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "^5.1.1"
+djangorestframework = "^3.15.2"
+pytest = "^8.3.3"
+ruff = "^0.6.8"
+Faker = "^30.1.0"
+python-dotenv = "^1.0.1"
+drf-spectacular = "^0.27.2"
+pytest-django = "^4.9.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 88
+extend-select = ["E203"] # Ruff extends the default flake8 configuration
