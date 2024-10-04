@@ -9,7 +9,7 @@ Run React Tests: ``docker compose run efex-frontend pnpm jest``
 
 ### Answers 1 and 2
 
-[answers_1_2](./answers_1_2).
+[answers_1_2](./questions).
 
 ### Question 5:
 **componentDidUpdate()**
